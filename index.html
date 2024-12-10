@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +79,8 @@
                 <p id="temperature">Temperature: 25°C</p>
                 <p id="description">Description: Sunny</p>
                 <p id="humidity">Humidity: 60%</p>
+                <p id="wind-speed">Wind Speed: 10 km/h</p>
+                <p id="feels-like">Feels Like: 20°C</p>
             </div>
             <div class="search">
                 <input type="text" class="search-input" id="cityInput" value="New Delhi" placeholder="Enter city name">
@@ -96,6 +97,8 @@
         const temperatureElement = document.getElementById('temperature');
         const descriptionElement = document.getElementById('description');
         const humidityElement = document.getElementById('humidity');
+        const windSpeedElement = document.getElementById('wind-speed');
+        const feelsLikeElement = document.getElementById('feels-like');
         const errorMessageElement = document.getElementById('error-message');
 
         searchButton.addEventListener('click', async () => {
@@ -108,6 +111,8 @@
                     temperatureElement.textContent = `Temperature: ${data.current.temp_c}°C`;
                     descriptionElement.textContent = `Description: ${data.current.condition.text}`;
                     humidityElement.textContent = `Humidity: ${data.current.humidity}%`;
+                    windSpeedElement.textContent = `Wind Speed: ${data.current.wind_kph} km/h`;
+                    feelsLikeElement.textContent = `Feels Like: ${data.current.feelslike_c}°C`;
                     errorMessageElement.textContent = '';
                 } catch (error) {
                     console.error(error);
@@ -120,7 +125,7 @@
     </script>
 </body>
 </html>
-```
+
 
 
  
